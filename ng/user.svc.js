@@ -6,6 +6,14 @@ angular.module('app')
       headers: { 'X-Auth': this.token }
     })
   }
+  svc.createUser = function(username, password) {
+    return $http.post('/api/users', {
+      username: username, password: password
+    })
+    .then(function() {
+      return svc.login(username, password)
+    })
+  }
   svc.login = function(username, password) {
     return $http.post('/api/sessions', {
       username: username, password: password
