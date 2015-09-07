@@ -1,11 +1,11 @@
 var express = require('express')
 var router = express.Router()
 
-router.use(express.static(__dirname + '/../assets'))
-router.use(express.static(__dirname + '/../templates'))
+router.use(express.static(rootPath('assets')))
+router.use(express.static(rootPath('templates')))
 
 sendApp = function(req, res) {
-  res.sendFile('layouts/app.html', { root: __dirname + '/..' })
+  res.sendFile('layouts/app.html', { root: rootPath('') })
 }
 
 router.get('/', sendApp)

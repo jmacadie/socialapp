@@ -1,8 +1,8 @@
 var router = require('express').Router()
 var bcrypt = require('bcrypt')
 var jwt = require('jwt-simple')
-var User = require('../../models/user')
-var config = require('../../config')
+var User = require(rootPath('models/user'))
+var config = require(rootPath('config'))
 
 router.get('/', function(req, res, next) {
   if (!req.headers['x-auth']) { return res.sendStatus(401) }

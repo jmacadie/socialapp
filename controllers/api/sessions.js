@@ -1,8 +1,8 @@
 var router = require('express').Router()
-var User = require('../../models/user')
+var User = require(rootPath('models/user'))
 var bcrypt = require('bcrypt')
 var jwt = require('jwt-simple')
-var config = require('../../config')
+var config = require(rootPath('config'))
 
 router.post('/', function(req, res, next) {
   User.findOne({username: req.body.username})

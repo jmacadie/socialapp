@@ -1,4 +1,5 @@
 var app = require('express')()
+var rp = require('./lib/root-path')
 
 app.use(require('body-parser').json())
 app.use(require('./lib/auth'))

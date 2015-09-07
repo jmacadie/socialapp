@@ -1,4 +1,4 @@
-var Post = require('../../models/post')
+var Post = require(rootPath('models/post'))
 var router = require('express').Router()
 
 router.get('/', function(req, res) {
