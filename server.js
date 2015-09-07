@@ -1,7 +1,7 @@
 var app = require('express')()
 
 app.use(require('body-parser').json())
-app.use(require('./auth'))
+app.use(require('./lib/auth'))
 
 app.use('/', require('./controllers/static'))
 app.use('/api/posts', require('./controllers/api/posts'))
