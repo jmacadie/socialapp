@@ -1,10 +1,10 @@
 angular.module('app')
-.controller('ApplicationCtrl', function($scope, $location, flash) {
-  $scope.flash = flash
+.controller('ApplicationCtrl', function($scope, $location, FlashSvc) {
+  $scope.flash = FlashSvc
 
   function processLogIn(_, user, message) {
     $scope.currentUser = user
-    flash.setMessage(message)
+    FlashSvc.setMessage(message)
     $location.path('/')
   }
 

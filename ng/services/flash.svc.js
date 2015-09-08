@@ -1,5 +1,5 @@
 angular.module('app')
-.factory('flash', function($rootScope) {
+.factory('FlashSvc', function($rootScope) {
 
   var queue = []
   var currentMessage = ''

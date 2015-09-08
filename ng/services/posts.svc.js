@@ -1,10 +1,12 @@
 angular.module('app')
-.service('PostsSvc', function($http) {
-  this.fetch = function() {
-    return $http.get('/api/posts')
-  }
+.factory('PostsSvc', function($http) {
+  return {
+    fetch: function() {
+      return $http.get('/api/posts')
+    },
 
-  this.create = function(post) {
-    return $http.post('/api/posts', post)
+    create: function(post) {
+      return $http.post('/api/posts', post)
+    },
   }
 })
