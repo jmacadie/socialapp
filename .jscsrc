@@ -1,0 +1,7 @@
+{
+  "preset": "airbnb",
+  "requireSemicolons": false,
+  "disallowSemicolons": true,
+  "requireSpacesInsideObjectBrackets": "all",
+  "excludeFiles": ["assets/**"]
+}

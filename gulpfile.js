@@ -1,5 +1,5 @@
 var fs = require('fs')
-var gulp= require('gulp')
+var gulp = require('gulp')
 
 fs.readdirSync(__dirname + '/gulp')
 .forEach(function(task) {

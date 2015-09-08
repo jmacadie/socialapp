@@ -2,9 +2,9 @@ angular.module('app')
 .controller('PostsCtrl', function($scope, PostsSvc) {
 
   $scope.addPost = function() {
-    if($scope.postBody) {
+    if ($scope.postBody) {
       PostsSvc.create({
-        body: $scope.postBody
+        body: $scope.postBody,
       }).success(function(post) {
         $scope.posts.unshift(post)
         $scope.postBody = null
