@@ -9,8 +9,12 @@ angular.module('app')
   })
 
   return {
-    setMessage: function(message) {
-      queue.push(message)
+    setMessage: function(type, title, body) {
+      queue.push({
+        alertType: type,
+        title: title,
+        body: body,
+      })
     },
 
     getMessage: function() {
