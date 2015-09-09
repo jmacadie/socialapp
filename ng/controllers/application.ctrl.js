@@ -5,7 +5,11 @@ angular.module('app')
   function processLogIn(user, type, title, message) {
     $scope.currentUser = user
     FlashSvc.setMessage(type, title, message)
-    $location.path('/')
+    if ($location.path() === '/') {
+      $scope.$emit('$routeChangeSuccess')
+    } else {
+      $location.path('/')
+    }
   }
 
   $scope.$on('login', function(_, user) {
