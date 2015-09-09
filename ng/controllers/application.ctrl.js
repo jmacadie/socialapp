@@ -1,5 +1,5 @@
 angular.module('app')
-.controller('ApplicationCtrl', function($scope, $location, FlashSvc) {
+.controller('ApplicationCtrl', function($scope, $location, FlashSvc, UserSvc) {
   $scope.flash = FlashSvc
 
   function processLogIn(user, type, title, message) {
@@ -21,4 +21,12 @@ angular.module('app')
                  'Registered',
                  'You\'ve successfully registered as a new user')
   })
+
+  $scope.logout = function() {
+    UserSvc.logout()
+    processLogIn('',
+                 'alert-info',
+                 '',
+                 'Logged out')
+  }
 })

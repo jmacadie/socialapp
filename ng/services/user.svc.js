@@ -28,9 +28,14 @@ angular.module('app')
     })
   }
 
+  _this.logout = function() {
+    delete $http.defaults.headers.common['X-Auth']
+  }
+
   return {
     getUser: _this.getUser,
     createUser: _this.createUser,
     login: _this.login,
+    logout: _this.logout,
   }
 })
