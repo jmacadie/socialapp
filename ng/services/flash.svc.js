@@ -20,5 +20,9 @@ angular.module('app')
     getMessage: function() {
       return currentMessage
     },
+
+    closeMessage: function() {
+      currentMessage = ''
+    },
   }
 })

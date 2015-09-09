@@ -3,6 +3,7 @@
 <head>
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
   <link rel="stylesheet" href="/app.css">
+  <base href="/">
 </head>
 <body ng-app="app" ng-controller="ApplicationCtrl">
   <nav class="navbar navbar-default">
@@ -20,29 +21,22 @@
     </div>
   </nav>
   <div class="container">
-    <div class="alert alert-dismissable"
-         role="alert"
-         ng-class="flash.getMessage().alertType"
-         ng-show="flash.getMessage()">
-      <button type="button"
-              class="close"
-              data-dismiss="alert"
-              aria-label="close">
-        <span aria-hidden="true">&times;</span>
-      </button>
+    <alert type="{{flash.getMessage().alertType}}"
+         ng-show="flash.getMessage()"
+         close="flash.closeMessage()">
       <div ng-if="flash.getMessage().title">
         <strong>{{flash.getMessage().title}}</strong>
       </div>
       <div ng-if="flash.getMessage().body">
         <span>{{flash.getMessage().body}}</span>
       </div>
-    </div>
+    </alert>
     <div ng-view></div>
   </div>
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.18/angular.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.18/angular-route.js"></script>
-  <script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular-route.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular-animate.js"></script>
+  <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.13.4.js"></script>
   <script src="/app.js"></script>
 </body>
 </html>

@@ -14,14 +14,14 @@ angular.module('app')
 
   $scope.$on('login', function(_, user) {
     processLogIn(user,
-                 'alert-info',
+                 'info',
                  '',
                  'Welcome back')
   })
 
   $scope.$on('register', function(_, user) {
     processLogIn(user,
-                 'alert-success',
+                 'success',
                  'Registered',
                  'You\'ve successfully registered as a new user')
   })
@@ -29,7 +29,7 @@ angular.module('app')
   $scope.logout = function() {
     UserSvc.logout()
     processLogIn('',
-                 'alert-info',
+                 'info',
                  '',
                  'Logged out')
   }
