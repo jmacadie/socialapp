@@ -9,6 +9,7 @@ sendApp = function(req, res) {
 }
 
 router.get('/', sendApp)
+router.get('/test', sendApp)
 router.get('/register', sendApp)
 router.get('/login', sendApp)
 
