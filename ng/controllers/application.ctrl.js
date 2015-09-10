@@ -2,13 +2,18 @@ angular.module('app')
 .controller('ApplicationCtrl', function($scope, $location, FlashSvc, UserSvc) {
   $scope.flash = FlashSvc
 
+  function setUserMsg(user) {
+    $scope.currentUser = user
+    $scope.signedInMsg = 'Signed in as ' + user.username
+  }
+
   UserSvc.getUser()
   .then(function(response) {
-    $scope.currentUser = response.data
+    setUserMsg(response.data)
   })
 
   function processLogIn(user, type, title, message) {
-    $scope.currentUser = user
+    setUserMsg(user)
     FlashSvc.setMessage(type, title, message)
     if ($location.path() === '/') {
       $scope.$emit('$routeChangeSuccess')

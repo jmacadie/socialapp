@@ -11,16 +11,25 @@
 <body ng-cloak ng-app="app" ng-controller="ApplicationCtrl">
   <nav class="navbar navbar-default">
     <div class="container">
-      <ul class="nav navbar-nav">
-        <li><a href="/">Posts</a></li>
-        <li><a href="/test">Test</a></li>
-        <li ng-if="!currentUser"><a href="/register">Register</a></li>
-        <li ng-if="!currentUser"><a href="/login">Login</a></li>
-        <li ng-if="currentUser"><a href="#" ng-click="logout()">Logout</a></li>
-      </ul>
-      <p ng-if="currentUser" class="navbar-text navbar-right">
-        Signed in as {{currentUser.username}}
-      </p>
+      <div class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+          <li><a href="/">Posts</a></li>
+          <li><a href="/test">Test</a></li>
+          <li ng-if="!currentUser">
+            <a ng-bind-template="Register" href="/register"></a>
+          </li>
+          <li ng-if="!currentUser">
+            <a ng-bind-template="Login" href="/login"></a>
+          </li>
+          <li ng-if="currentUser">
+            <a ng-bind-template="Logout" href="#" ng-click="logout()"></a>
+          </li>
+        </ul>
+        <span ng-if="currentUser"
+              class="navbar-text navbar-right"
+              ng-bind="signedInMsg">
+        </span>
+      </div>
     </div>
   </nav>
   <div class="container">
@@ -28,10 +37,10 @@
          ng-show="flash.getMessage()"
          close="flash.closeMessage()">
       <div ng-if="flash.getMessage().title">
-        <strong>{{flash.getMessage().title}}</strong>
+        <strong ng-bind="flash.getMessage().title"></strong>
       </div>
       <div ng-if="flash.getMessage().body">
-        <span>{{flash.getMessage().body}}</span>
+        <span ng-bind="flash.getMessage().body"></span>
       </div>
     </alert>
     <div ng-view></div>
